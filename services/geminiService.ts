@@ -1,10 +1,19 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
-// With Vite define plugin, process.env.API_KEY is replaced at build time
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// We do NOT initialize the client globally to prevent crashes if the key is missing on load.
 
 export const generateResponse = async (history: string[], message: string): Promise<string> => {
   try {
+    const apiKey = process.env.API_KEY;
+
+    if (!apiKey) {
+      console.warn("API Key is missing. Please check your .env configuration.");
+      return "Xin lỗi, hệ thống AI đang bảo trì (Thiếu API Key). Vui lòng để lại tin nhắn trong phần Liên hệ.";
+    }
+
+    // Initialize client only when needed
+    const ai = new GoogleGenAI({ apiKey });
+
     const prompt = `
       Bạn là trợ lý ảo AI cho một website freelance thiết kế web tên là "CreativeFlow".
       Phong cách của bạn: Thân thiện, chuyên nghiệp, súc tích và sáng tạo.
