@@ -8,10 +8,10 @@ export interface ServiceItem {
 }
 
 export interface ProjectItem {
-  id: string;
   title: string;
-  category: string;
-  imageUrl: string;
+  cat: string;
+  url: string;
+  image: string;
 }
 
 export interface ChatMessage {
@@ -24,5 +24,6 @@ export enum SectionId {
   HOME = 'home',
   SERVICES = 'services',
   PORTFOLIO = 'portfolio',
+  PROJECTS = 'projects',
   CONTACT = 'contact',
 }

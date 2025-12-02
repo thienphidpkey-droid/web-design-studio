@@ -1,15 +1,111 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Code, Layout, Smartphone, Mail, Github, Twitter, Linkedin, Palette, Layers, Zap, ExternalLink, Globe, ArrowUp, Instagram, Dribbble } from 'lucide-react';
 import NeuButton from './components/NeuButton';
 import ChatBot from './components/ChatBot';
 import HeroScene from './components/HeroScene';
-import { SectionId } from './types';
+import Projects from './components/Projects';
+import { SectionId, ProjectItem } from './types';
+
+// All projects data
+const ALL_PROJECTS: ProjectItem[] = [
+  {
+    title: "Heona Media",
+    cat: "Creative Agency",
+    url: "https://heonamedia.vercel.app/",
+    image: "https://i.postimg.cc/FzsDt864/media.png"
+  },
+  {
+    title: "Neon Glide Patin",
+    cat: "Sports E-commerce",
+    url: "https://neon-glide-patin.vercel.app/",
+    image: "https://i.postimg.cc/x8TtrhZQ/patin.png"
+  },
+  {
+    title: "Emerald Estate",
+    cat: "Real Estate",
+    url: "https://emerald-estate.vercel.app/",
+    image: "https://i.postimg.cc/mk28xJnh/bds.png"
+  },
+  {
+    title: "Sen Mộc Spa",
+    cat: "Beauty & Wellness",
+    url: "https://senmocspa.vercel.app/",
+    image: "https://i.postimg.cc/yxYvqtG6/spa.png"
+  },
+  {
+    title: "Minh An Studio",
+    cat: "Photography Portfolio",
+    url: "https://minh-an-studio.vercel.app/",
+    image: "https://i.postimg.cc/5yNncTrt/chup_anh.png"
+  },
+  {
+    title: "Nha Khoa T-M-C",
+    cat: "Medical Clinic",
+    url: "https://nha-khoa-t-m-c.vercel.app/",
+    image: "https://i.postimg.cc/prXqN46g/rang.png"
+  },
+  {
+    title: "Web design CreativeFlow",
+    cat: "Design Studio",
+    url: "#",
+    image: "https://i.postimg.cc/cC4Xq2zg/web.png"
+  },
+  {
+    title: "Camera Pro",
+    cat: "Photography Gear",
+    url: "https://camerapro-eight.vercel.app/",
+    image: "https://i.postimg.cc/90FJ3Kkq/camera.png"
+  },
+  {
+    title: "English Note Center",
+    cat: "Education",
+    url: "https://english-note-center.vercel.app/",
+    image: "https://i.postimg.cc/kGXfrzH2/tieng_anh.png"
+  },
+  {
+    title: "Luxe Bijoux",
+    cat: "Luxury Jewelry",
+    url: "https://luxe-bijoux.vercel.app/",
+    image: "https://i.postimg.cc/placeholder1.png"
+  },
+  {
+    title: "Luxury Fashion",
+    cat: "Fashion E-commerce",
+    url: "https://luxury-fashion.vercel.app/",
+    image: "https://i.postimg.cc/placeholder2.png"
+  },
+  {
+    title: "Portfolio",
+    cat: "Creative Portfolio",
+    url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
+    image: "https://i.postimg.cc/placeholder3.png"
+  },
+  {
+    title: "Business Automation",
+    cat: "SaaS Platform",
+    url: "https://business-automation.vercel.app/",
+    image: "https://i.postimg.cc/placeholder4.png"
+  },
+  {
+    title: "Liquid Automation",
+    cat: "Automation Platform",
+    url: "https://liquid-automation.vercel.app/",
+    image: "https://i.postimg.cc/placeholder5.png"
+  },
+];
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<SectionId>(SectionId.HOME);
   const [servicesVisible, setServicesVisible] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+
+  // Randomly select 6 featured projects
+  const featuredProjects = useMemo(() => {
+    const shuffled = [...ALL_PROJECTS].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 6);
+  }, []);
 
   // Smooth scroll handler with offset
   const scrollTo = (id: SectionId) => {
@@ -59,7 +155,8 @@ const App: React.FC = () => {
   const navItems = [
     { id: SectionId.HOME, label: 'Trang chủ', colorClass: 'text-blue-500' },
     { id: SectionId.SERVICES, label: 'Dịch vụ', colorClass: 'text-purple-500' },
-    { id: SectionId.PORTFOLIO, label: 'Dự án', colorClass: 'text-pink-500' },
+    { id: SectionId.PORTFOLIO, label: 'Dự án nổi bật', colorClass: 'text-pink-500' },
+    { id: SectionId.PROJECTS, label: 'Tất cả dự án', colorClass: 'text-orange-500' },
     { id: SectionId.CONTACT, label: 'Liên hệ', colorClass: 'text-teal-500' }
   ];
 
@@ -185,92 +282,10 @@ const App: React.FC = () => {
                 <h2 className="text-4xl font-bold text-gray-800 mb-2">Dự Án Nổi Bật</h2>
                 <p className="text-gray-500">Các website tôi đã thiết kế và xây dựng.</p>
               </div>
-              <div className="hidden md:block">
-                <NeuButton className="!px-6 !py-2 !text-sm">Xem tất cả trên Behance</NeuButton>
-              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {[
-                {
-                  title: "Heona Media",
-                  cat: "Creative Agency",
-                  url: "https://heonamedia.vercel.app/",
-                  image: "https://i.postimg.cc/FzsDt864/media.png"
-                },
-                {
-                  title: "Neon Glide Patin",
-                  cat: "Sports E-commerce",
-                  url: "https://neon-glide-patin.vercel.app/",
-                  image: "https://i.postimg.cc/x8TtrhZQ/patin.png"
-                },
-                {
-                  title: "Emerald Estate",
-                  cat: "Real Estate",
-                  url: "https://emerald-estate.vercel.app/",
-                  image: "https://i.postimg.cc/mk28xJnh/bds.png"
-                },
-                {
-                  title: "Sen Mộc Spa",
-                  cat: "Beauty & Wellness",
-                  url: "https://senmocspa.vercel.app/",
-                  image: "https://i.postimg.cc/yxYvqtG6/spa.png"
-                },
-                {
-                  title: "Minh An Studio",
-                  cat: "Photography Portfolio",
-                  url: "https://minh-an-studio.vercel.app/",
-                  image: "https://i.postimg.cc/5yNncTrt/chup_anh.png"
-                },
-                {
-                  title: "Nha Khoa T-M-C",
-                  cat: "Medical Clinic",
-                  url: "https://nha-khoa-t-m-c.vercel.app/",
-                  image: "https://i.postimg.cc/prXqN46g/rang.png"
-                },
-                {
-                  title: "Web design CreativeFlow",
-                  cat: "Design Studio",
-                  url: "#",
-                  image: "https://i.postimg.cc/cC4Xq2zg/web.png"
-                },
-                {
-                  title: "Camera Pro",
-                  cat: "Photography Gear",
-                  url: "https://camerapro-eight.vercel.app/",
-                  image: "https://i.postimg.cc/90FJ3Kkq/camera.png"
-                },
-                {
-                  title: "English Note Center",
-                  cat: "Education",
-                  url: "https://english-note-center.vercel.app/",
-                  image: "https://i.postimg.cc/kGXfrzH2/tieng_anh.png"
-                },
-                {
-                  title: "Luxe Bijoux",
-                  cat: "Luxury Jewelry",
-                  url: "https://luxe-bijoux.vercel.app/",
-                  image: "https://i.postimg.cc/placeholder1.png"
-                },
-                {
-                  title: "Luxury Fashion",
-                  cat: "Fashion E-commerce",
-                  url: "https://luxury-fashion.vercel.app/",
-                  image: "https://i.postimg.cc/placeholder2.png"
-                },
-                {
-                  title: "Portfolio",
-                  cat: "Creative Portfolio",
-                  url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
-                  image: "https://i.postimg.cc/placeholder3.png"
-                },
-                {
-                  title: "Business Automation",
-                  cat: "SaaS Platform",
-                  url: "https://business-automation.vercel.app/",
-                  image: "https://i.postimg.cc/placeholder4.png"
-                },
-              ].map((project, idx) => (
+              {featuredProjects.map((project, idx) => (
                 <a
                   key={idx}
                   href={project.url}
@@ -304,10 +319,15 @@ const App: React.FC = () => {
                 </a>
               ))}
             </div>
-            <div className="mt-12 md:hidden flex justify-center">
-              <NeuButton>Xem tất cả</NeuButton>
+            <div className="mt-12 flex justify-center">
+              <NeuButton onClick={() => scrollTo(SectionId.PROJECTS)}>Xem tất cả dự án</NeuButton>
             </div>
           </div>
+        </section>
+
+        {/* ALL PROJECTS SECTION */}
+        <section id={SectionId.PROJECTS} className="py-24 scroll-mt-28">
+          <Projects projects={ALL_PROJECTS} onBackClick={() => scrollTo(SectionId.PORTFOLIO)} />
         </section>
 
         {/* CONTACT SECTION */}
