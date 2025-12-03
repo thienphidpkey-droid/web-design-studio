@@ -1,10 +1,12 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { Code, Layout, Smartphone, Mail, Github, Twitter, Linkedin, Palette, Layers, Zap, ExternalLink, Globe, ArrowUp, Instagram, Dribbble } from 'lucide-react';
 import NeuButton from './components/NeuButton';
-import ChatBot from './components/ChatBot';
-import HeroScene from './components/HeroScene';
 import Projects from './components/Projects';
 import { SectionId, ProjectItem } from './types';
+
+// Lazy load heavy components
+const ChatBot = lazy(() => import('./components/ChatBot'));
+const HeroScene = lazy(() => import('./components/HeroScene'));
 
 // All projects data
 const ALL_PROJECTS: ProjectItem[] = [
@@ -219,15 +221,17 @@ const App: React.FC = () => {
               </div>
 
               <div className="flex gap-6 pt-4 text-gray-400">
-                <a href="#" className="hover:text-blue-500 transition-colors"><Github size={24} /></a>
-                <a href="#" className="hover:text-blue-400 transition-colors"><Twitter size={24} /></a>
-                <a href="#" className="hover:text-blue-700 transition-colors"><Linkedin size={24} /></a>
+                <a href="#" className="hover:text-blue-500 transition-colors" rel="noopener noreferrer"><Github size={24} /></a>
+                <a href="#" className="hover:text-blue-400 transition-colors" rel="noopener noreferrer"><Twitter size={24} /></a>
+                <a href="#" className="hover:text-blue-700 transition-colors" rel="noopener noreferrer"><Linkedin size={24} /></a>
               </div>
             </div>
 
             {/* 3D Floating Element - Three.js Scene */}
             <div className="relative hidden lg:flex justify-center items-center h-[500px] w-full max-w-[600px] mx-auto">
-              <HeroScene />
+              <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-gray-400">Loading 3D Scene...</div>}>
+                <HeroScene />
+              </Suspense>
 
               {/* Decorative Background for 3D */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 blur-[80px] rounded-full -z-10"></div>
@@ -337,13 +341,13 @@ const App: React.FC = () => {
             CreativeFlow.
           </div>
           <div className="flex justify-center gap-8 mb-8 text-gray-500">
-            <a href="#" className="p-3 rounded-full shadow-neu hover:shadow-neu-pressed hover:text-blue-500 hover:scale-110 transition-all duration-300">
+            <a href="#" className="p-3 rounded-full shadow-neu hover:shadow-neu-pressed hover:text-blue-500 hover:scale-110 transition-all duration-300" rel="noopener noreferrer">
               <Instagram size={24} />
             </a>
-            <a href="#" className="p-3 rounded-full shadow-neu hover:shadow-neu-pressed hover:text-blue-500 hover:scale-110 transition-all duration-300">
+            <a href="#" className="p-3 rounded-full shadow-neu hover:shadow-neu-pressed hover:text-blue-500 hover:scale-110 transition-all duration-300" rel="noopener noreferrer">
               <Dribbble size={24} />
             </a>
-            <a href="#" className="p-3 rounded-full shadow-neu hover:shadow-neu-pressed hover:text-blue-500 hover:scale-110 transition-all duration-300">
+            <a href="#" className="p-3 rounded-full shadow-neu hover:shadow-neu-pressed hover:text-blue-500 hover:scale-110 transition-all duration-300" rel="noopener noreferrer">
               <Palette size={24} />
             </a>
           </div>
@@ -373,7 +377,9 @@ const App: React.FC = () => {
       </a>
 
       {/* AI Chat Bot */}
-      <ChatBot />
+      <Suspense fallback={null}>
+        <ChatBot />
+      </Suspense>
     </div>
   );
 };
