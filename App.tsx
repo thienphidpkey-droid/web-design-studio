@@ -1,105 +1,92 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { Code, Layout, Smartphone, Mail, Github, Twitter, Linkedin, Palette, Layers, Zap, ExternalLink, Globe, ArrowUp, Instagram, Dribbble } from 'lucide-react';
-import NeuButton from './components/NeuButton';
-import Projects from './components/Projects';
-import { SectionId, ProjectItem } from './types';
-
-// Lazy load heavy components
-const ChatBot = lazy(() => import('./components/ChatBot'));
-const HeroScene = lazy(() => import('./components/HeroScene'));
-
-// All projects data
-const ALL_PROJECTS: ProjectItem[] = [
-  {
-    title: "Heona Media",
-    cat: "Creative Agency",
-    url: "https://heonamedia.vercel.app/",
+cat: "Creative Agency",
+  url: "https://heonamedia.vercel.app/",
     image: "https://i.postimg.cc/nLs1yFp1/a1.jpg"
   },
-  {
-    title: "Neon Glide Patin",
+{
+  title: "Neon Glide Patin",
     cat: "Sports E-commerce",
-    url: "https://neon-glide-patin.vercel.app/",
-    image: "https://i.postimg.cc/MGcYC6qt/a2.jpg"
-  },
-  {
-    title: "Emerald Estate",
+      url: "https://neon-glide-patin.vercel.app/",
+        image: "https://i.postimg.cc/MGcYC6qt/a2.jpg"
+},
+{
+  title: "Emerald Estate",
     cat: "Real Estate",
-    url: "https://emerald-estate.vercel.app/",
-    image: "https://i.postimg.cc/XvZgRj4K/a3.jpg"
-  },
-  {
-    title: "Sen Mộc Spa",
+      url: "https://emerald-estate.vercel.app/",
+        image: "https://i.postimg.cc/XvZgRj4K/a3.jpg"
+},
+{
+  title: "Sen Mộc Spa",
     cat: "Beauty & Wellness",
-    url: "https://senmocspa.vercel.app/",
-    image: "https://i.postimg.cc/2SHDHwSh/spa-nedir.jpg"
-  },
-  {
-    title: "Minh An Studio",
+      url: "https://senmocspa.vercel.app/",
+        image: "https://i.postimg.cc/2SHDHwSh/spa-nedir.jpg"
+},
+{
+  title: "Minh An Studio",
     cat: "Photography Portfolio",
-    url: "https://minh-an-studio.vercel.app/",
-    image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
-  },
-  {
-    title: "Nha Khoa T-M-C",
+      url: "https://minh-an-studio.vercel.app/",
+        image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
+},
+{
+  title: "Nha Khoa T-M-C",
     cat: "Medical Clinic",
-    url: "https://nha-khoa-t-m-c.vercel.app/",
-    image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
-  },
-  {
-    title: "Web design CreativeFlow",
+      url: "https://nha-khoa-t-m-c.vercel.app/",
+        image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
+},
+{
+  title: "Web design CreativeFlow",
     cat: "Design Studio",
-    url: "#",
-    image: "https://i.postimg.cc/KYK56GxT/a7.jpg"
-  },
-  {
-    title: "Camera Pro",
+      url: "#",
+        image: "https://i.postimg.cc/KYK56GxT/a7.jpg"
+},
+{
+  title: "Camera Pro",
     cat: "Photography Gear",
-    url: "https://camerapro-eight.vercel.app/",
-    image: "https://i.postimg.cc/hGJ0kDcz/a8.jpg"
-  },
-  {
-    title: "English Note Center",
+      url: "https://camerapro-eight.vercel.app/",
+        image: "https://i.postimg.cc/hGJ0kDcz/a8.jpg"
+},
+{
+  title: "English Note Center",
     cat: "Education",
-    url: "https://english-note-center.vercel.app/",
-    image: "https://i.postimg.cc/LsqVc92J/a9.jpg"
-  },
-  {
-    title: "Luxe Bijoux",
+      url: "https://english-note-center.vercel.app/",
+        image: "https://i.postimg.cc/LsqVc92J/a9.jpg"
+},
+{
+  title: "Luxe Bijoux",
     cat: "Luxury Jewelry",
-    url: "https://luxe-bijoux.vercel.app/",
-    image: "https://i.postimg.cc/jS3X3w0N/a10.jpg"
-  },
-  {
-    title: "Luxury Fashion",
+      url: "https://luxe-bijoux.vercel.app/",
+        image: "https://i.postimg.cc/jS3X3w0N/a10.jpg"
+},
+{
+  title: "Luxury Fashion",
     cat: "Fashion E-commerce",
-    url: "https://luxury-fashion.vercel.app/",
-    image: "https://i.postimg.cc/mgpwpzfF/a11.jpg"
-  },
-  {
-    title: "Portfolio",
+      url: "https://luxury-fashion.vercel.app/",
+        image: "https://i.postimg.cc/mgpwpzfF/a11.jpg"
+},
+{
+  title: "Portfolio",
     cat: "Creative Portfolio",
-    url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
-    image: "https://i.postimg.cc/JzYqYDV0/a12.jpg"
-  },
-  {
-    title: "Business Automation",
+      url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
+        image: "https://i.postimg.cc/JzYqYDV0/a12.jpg"
+},
+{
+  title: "Business Automation",
     cat: "SaaS Platform",
-    url: "https://business-automation-ten.vercel.app/",
-    image: "https://i.postimg.cc/Mp3D3M2X/a13.jpg"
-  },
-  {
-    title: "Liquid Automation",
+      url: "https://business-automation-ten.vercel.app/",
+        image: "https://i.postimg.cc/Mp3D3M2X/a13.jpg"
+},
+{
+  title: "Liquid Automation",
     cat: "Automation Platform",
-    url: "https://liquid-automation.vercel.app/",
-    image: "https://i.postimg.cc/DwpgpJkw/a14.jpg"
-  },
-  {
-    title: "Notebook Flips",
+      url: "https://liquid-automation.vercel.app/",
+        image: "https://i.postimg.cc/DwpgpJkw/a14.jpg"
+},
+{
+  title: "Notebook Flips",
     cat: "Interactive Notebook",
-    url: "https://notebook-flips.vercel.app/",
-    image: "https://i.postimg.cc/2S9w9bRj/a15.jpg"
-  },
+      url: "https://notebook-flips.vercel.app/",
+        image: "https://i.postimg.cc/2S9w9bRj/a15.jpg"
+},
 ];
 
 const App: React.FC = () => {
