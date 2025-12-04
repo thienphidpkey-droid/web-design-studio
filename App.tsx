@@ -279,13 +279,24 @@ const App: React.FC = () => {
             </div>
 
             {/* 3D Floating Element - Three.js Scene */}
-            <div className="relative hidden lg:flex justify-center items-center h-[600px] w-full max-w-[800px] mx-auto">
-              <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-gray-400">Loading 3D Scene...</div>}>
-                <ProjectCarousel projects={ALL_PROJECTS} />
-              </Suspense>
+            <div className="relative hidden lg:flex flex-col justify-center items-center w-full max-w-[800px] mx-auto space-y-6">
+              <div className="h-[600px] w-full relative">
+                <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-gray-400">Loading 3D Scene...</div>}>
+                  <ProjectCarousel projects={ALL_PROJECTS.slice(0, 5)} />
+                </Suspense>
 
-              {/* Decorative Background for 3D */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 blur-[80px] rounded-full -z-10"></div>
+                {/* Decorative Background for 3D */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 blur-[80px] rounded-full -z-10"></div>
+              </div>
+
+              {/* View All Projects Button */}
+              <NeuButton
+                onClick={() => scrollTo(SectionId.PROJECTS)}
+                className="!px-8 !py-3 text-purple-600 font-semibold flex items-center gap-2"
+              >
+                Xem toàn bộ dự án
+                <ExternalLink size={18} />
+              </NeuButton>
             </div>
 
           </div>
