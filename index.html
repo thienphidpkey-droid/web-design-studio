@@ -33,20 +33,29 @@
                 dark: '#a3b1c6',
               }
             },
-            boxShadow: {
-              'neu': '9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5)',
-              'neu-pressed': 'inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8)',
-              'neu-sm': '5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255, 0.5)',
-              '3d': '20px 20px 60px #bebebe, -20px -20px 60px #ffffff',
-            },
             animation: {
               'float': 'float 6s ease-in-out infinite',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'slide-left': 'slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-right': 'slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slide-down-fade': 'slideDownFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
+              },
+              slideInLeft: {
+                'from': { opacity: '0', transform: 'translateX(-100px)' },
+                'to': { opacity: '1', transform: 'translateX(0)' },
+              },
+              slideInRight: {
+                'from': { opacity: '0', transform: 'translateX(100px)' },
+                'to': { opacity: '1', transform: 'translateX(0)' },
+              },
+              slideDownFade: {
+                'from': { opacity: '0', transform: 'translateY(-50px)' },
+                'to': { opacity: '1', transform: 'translateY(0)' },
               }
             }
           },
@@ -54,15 +63,30 @@
       }
     </script>
     <style>
+      /* Custom Scrollbar for the right panel */
+      .hide-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .hide-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .hide-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
-        background-color: #e0e5ec;
-        color: #4a5568;
+        background-color: #020617; /* slate-950 */
+        color: white;
+        overflow: hidden; /* Prevent body scroll, handle inside App */
       }
       .glass {
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
     </style>
 <script type="importmap">
