@@ -1,92 +1,105 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-cat: "Creative Agency",
-  url: "https://heonamedia.vercel.app/",
+import { Code, Layout, Smartphone, Mail, Github, Twitter, Linkedin, Palette, Layers, Zap, ExternalLink, Globe, ArrowUp, Instagram, Dribbble } from 'lucide-react';
+import NeuButton from './components/NeuButton';
+import Projects from './components/Projects';
+import { SectionId, ProjectItem } from './types';
+
+// Lazy load heavy components
+const ChatBot = lazy(() => import('./components/ChatBot'));
+const ProjectCarousel = lazy(() => import('./components/ProjectCarousel'));
+
+// All projects data
+const ALL_PROJECTS: ProjectItem[] = [
+  {
+    title: "Heona Media",
+    cat: "Creative Agency",
+    url: "https://heonamedia.vercel.app/",
     image: "https://i.postimg.cc/nLs1yFp1/a1.jpg"
   },
-{
-  title: "Neon Glide Patin",
+  {
+    title: "Neon Glide Patin",
     cat: "Sports E-commerce",
-      url: "https://neon-glide-patin.vercel.app/",
-        image: "https://i.postimg.cc/MGcYC6qt/a2.jpg"
-},
-{
-  title: "Emerald Estate",
+    url: "https://neon-glide-patin.vercel.app/",
+    image: "https://i.postimg.cc/MGcYC6qt/a2.jpg"
+  },
+  {
+    title: "Emerald Estate",
     cat: "Real Estate",
-      url: "https://emerald-estate.vercel.app/",
-        image: "https://i.postimg.cc/XvZgRj4K/a3.jpg"
-},
-{
-  title: "Sen Mộc Spa",
+    url: "https://emerald-estate.vercel.app/",
+    image: "https://i.postimg.cc/XvZgRj4K/a3.jpg"
+  },
+  {
+    title: "Sen Mộc Spa",
     cat: "Beauty & Wellness",
-      url: "https://senmocspa.vercel.app/",
-        image: "https://i.postimg.cc/2SHDHwSh/spa-nedir.jpg"
-},
-{
-  title: "Minh An Studio",
+    url: "https://senmocspa.vercel.app/",
+    image: "https://i.postimg.cc/2SHDHwSh/spa-nedir.jpg"
+  },
+  {
+    title: "Minh An Studio",
     cat: "Photography Portfolio",
-      url: "https://minh-an-studio.vercel.app/",
-        image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
-},
-{
-  title: "Nha Khoa T-M-C",
+    url: "https://minh-an-studio.vercel.app/",
+    image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
+  },
+  {
+    title: "Nha Khoa T-M-C",
     cat: "Medical Clinic",
-      url: "https://nha-khoa-t-m-c.vercel.app/",
-        image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
-},
-{
-  title: "Web design CreativeFlow",
+    url: "https://nha-khoa-t-m-c.vercel.app/",
+    image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
+  },
+  {
+    title: "Web design CreativeFlow",
     cat: "Design Studio",
-      url: "#",
-        image: "https://i.postimg.cc/KYK56GxT/a7.jpg"
-},
-{
-  title: "Camera Pro",
+    url: "#",
+    image: "https://i.postimg.cc/KYK56GxT/a7.jpg"
+  },
+  {
+    title: "Camera Pro",
     cat: "Photography Gear",
-      url: "https://camerapro-eight.vercel.app/",
-        image: "https://i.postimg.cc/hGJ0kDcz/a8.jpg"
-},
-{
-  title: "English Note Center",
+    url: "https://camerapro-eight.vercel.app/",
+    image: "https://i.postimg.cc/hGJ0kDcz/a8.jpg"
+  },
+  {
+    title: "English Note Center",
     cat: "Education",
-      url: "https://english-note-center.vercel.app/",
-        image: "https://i.postimg.cc/LsqVc92J/a9.jpg"
-},
-{
-  title: "Luxe Bijoux",
+    url: "https://english-note-center.vercel.app/",
+    image: "https://i.postimg.cc/LsqVc92J/a9.jpg"
+  },
+  {
+    title: "Luxe Bijoux",
     cat: "Luxury Jewelry",
-      url: "https://luxe-bijoux.vercel.app/",
-        image: "https://i.postimg.cc/jS3X3w0N/a10.jpg"
-},
-{
-  title: "Luxury Fashion",
+    url: "https://luxe-bijoux.vercel.app/",
+    image: "https://i.postimg.cc/jS3X3w0N/a10.jpg"
+  },
+  {
+    title: "Luxury Fashion",
     cat: "Fashion E-commerce",
-      url: "https://luxury-fashion.vercel.app/",
-        image: "https://i.postimg.cc/mgpwpzfF/a11.jpg"
-},
-{
-  title: "Portfolio",
+    url: "https://luxury-fashion.vercel.app/",
+    image: "https://i.postimg.cc/mgpwpzfF/a11.jpg"
+  },
+  {
+    title: "Portfolio",
     cat: "Creative Portfolio",
-      url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
-        image: "https://i.postimg.cc/JzYqYDV0/a12.jpg"
-},
-{
-  title: "Business Automation",
+    url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
+    image: "https://i.postimg.cc/JzYqYDV0/a12.jpg"
+  },
+  {
+    title: "Business Automation",
     cat: "SaaS Platform",
-      url: "https://business-automation-ten.vercel.app/",
-        image: "https://i.postimg.cc/Mp3D3M2X/a13.jpg"
-},
-{
-  title: "Liquid Automation",
+    url: "https://business-automation-ten.vercel.app/",
+    image: "https://i.postimg.cc/Mp3D3M2X/a13.jpg"
+  },
+  {
+    title: "Liquid Automation",
     cat: "Automation Platform",
-      url: "https://liquid-automation.vercel.app/",
-        image: "https://i.postimg.cc/DwpgpJkw/a14.jpg"
-},
-{
-  title: "Notebook Flips",
+    url: "https://liquid-automation.vercel.app/",
+    image: "https://i.postimg.cc/DwpgpJkw/a14.jpg"
+  },
+  {
+    title: "Notebook Flips",
     cat: "Interactive Notebook",
-      url: "https://notebook-flips.vercel.app/",
-        image: "https://i.postimg.cc/2S9w9bRj/a15.jpg"
-},
+    url: "https://notebook-flips.vercel.app/",
+    image: "https://i.postimg.cc/2S9w9bRj/a15.jpg"
+  },
 ];
 
 const App: React.FC = () => {
@@ -94,6 +107,16 @@ const App: React.FC = () => {
   const [servicesVisible, setServicesVisible] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Form State
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    projectType: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Smooth scroll handler with offset
   const scrollTo = (id: SectionId) => {
@@ -139,6 +162,41 @@ const App: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.name.trim()) newErrors.name = 'Vui lòng nhập họ tên';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Vui lòng nhập email';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email không hợp lệ';
+    }
+    if (!formData.message.trim()) newErrors.message = 'Vui lòng nhập nội dung tin nhắn';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      setIsSubmitting(true);
+      // Simulate API call
+      setTimeout(() => {
+        alert('Cảm ơn bạn! Tin nhắn đã được gửi thành công.');
+        setIsSubmitting(false);
+        setFormData({ name: '', email: '', projectType: '', message: '' });
+      }, 1000);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
 
   const navItems = [
     { id: SectionId.HOME, label: 'Trang chủ', colorClass: 'text-blue-500' },
@@ -274,15 +332,31 @@ const App: React.FC = () => {
                 <p className="text-gray-500">Hãy để lại thông tin, tôi sẽ liên hệ lại trong vòng 24h.</p>
               </div>
 
-              <form className="space-y-6 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6 max-w-lg mx-auto" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-gray-600 ml-4">Họ tên</label>
-                    <input type="text" className="w-full bg-neu-base rounded-2xl shadow-neu-pressed p-4 outline-none text-gray-700 focus:text-blue-600 transition-colors" placeholder="Nguyễn Văn A" />
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className={`w-full bg-neu-base rounded-2xl shadow-neu-pressed p-4 outline-none text-gray-700 focus:text-blue-600 transition-colors ${errors.name ? 'border border-red-500' : ''}`}
+                      placeholder="Nguyễn Văn A"
+                    />
+                    {errors.name && <p className="text-red-500 text-xs ml-4">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-semibold text-gray-600 ml-4">Email</label>
-                    <input type="email" className="w-full bg-neu-base rounded-2xl shadow-neu-pressed p-4 outline-none text-gray-700 focus:text-blue-600 transition-colors" placeholder="email@example.com" />
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={`w-full bg-neu-base rounded-2xl shadow-neu-pressed p-4 outline-none text-gray-700 focus:text-blue-600 transition-colors ${errors.email ? 'border border-red-500' : ''}`}
+                      placeholder="email@example.com"
+                    />
+                    {errors.email && <p className="text-red-500 text-xs ml-4">{errors.email}</p>}
                   </div>
                 </div>
 
@@ -291,7 +365,14 @@ const App: React.FC = () => {
                   <div className="flex flex-wrap gap-4">
                     {['Web Design', 'Development', 'Branding', 'Khác'].map(opt => (
                       <label key={opt} className="cursor-pointer">
-                        <input type="radio" name="project_type" className="peer sr-only" />
+                        <input
+                          type="radio"
+                          name="projectType"
+                          value={opt}
+                          checked={formData.projectType === opt}
+                          onChange={handleInputChange}
+                          className="peer sr-only"
+                        />
                         <div className="px-6 py-2 rounded-xl shadow-neu bg-neu-base text-gray-500 peer-checked:shadow-neu-pressed peer-checked:text-blue-600 peer-checked:font-bold transition-all text-sm">
                           {opt}
                         </div>
@@ -302,11 +383,21 @@ const App: React.FC = () => {
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-gray-600 ml-4">Tin nhắn</label>
-                  <textarea rows={4} className="w-full bg-neu-base rounded-2xl shadow-neu-pressed p-4 outline-none text-gray-700 focus:text-blue-600 transition-colors resize-none" placeholder="Mô tả sơ qua về ý tưởng của bạn..."></textarea>
+                  <textarea
+                    rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className={`w-full bg-neu-base rounded-2xl shadow-neu-pressed p-4 outline-none text-gray-700 focus:text-blue-600 transition-colors resize-none ${errors.message ? 'border border-red-500' : ''}`}
+                    placeholder="Mô tả sơ qua về ý tưởng của bạn..."
+                  ></textarea>
+                  {errors.message && <p className="text-red-500 text-xs ml-4">{errors.message}</p>}
                 </div>
 
                 <div className="pt-4 flex justify-center">
-                  <NeuButton type="submit" className="w-full md:w-auto !px-12">Gửi Tin Nhắn</NeuButton>
+                  <NeuButton type="submit" className="w-full md:w-auto !px-12" disabled={isSubmitting}>
+                    {isSubmitting ? 'Đang gửi...' : 'Gửi Tin Nhắn'}
+                  </NeuButton>
                 </div>
               </form>
             </div>
