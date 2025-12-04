@@ -11,6 +11,12 @@ const ProjectCarousel = lazy(() => import('./components/ProjectCarousel'));
 // All projects data
 const ALL_PROJECTS: ProjectItem[] = [
   {
+    title: "Nova Creative Agency",
+    cat: "Creative Agency",
+    url: "https://nova-creative-agency.vercel.app/",
+    image: "https://i.postimg.cc/RV3yHgGB/download_(21).png"
+  },
+  {
     title: "Heona Media",
     cat: "Creative Agency",
     url: "https://heonamedia.vercel.app/",
@@ -89,10 +95,10 @@ const ALL_PROJECTS: ProjectItem[] = [
     image: "https://i.postimg.cc/Mp3D3M2X/a13.jpg"
   },
   {
-    title: "Liquid Automation",
-    cat: "Automation Platform",
-    url: "https://liquid-automation.vercel.app/",
-    image: "https://i.postimg.cc/DwpgpJkw/a14.jpg"
+    title: "WanderLust",
+    cat: "Travel App",
+    url: "#",
+    image: "https://i.postimg.cc/QxRPkcns/download_(22).png"
   },
   {
     title: "Notebook Flips",
@@ -100,12 +106,18 @@ const ALL_PROJECTS: ProjectItem[] = [
     url: "https://notebook-flips.vercel.app/",
     image: "https://i.postimg.cc/2S9w9bRj/a15.jpg"
   },
+  {
+    title: "Portfolio Glass Morphism",
+    cat: "Web Design",
+    url: "https://glass-morphism-portfolio.vercel.app/",
+    image: "https://i.postimg.cc/kXF18L8D/download-(23).png"
+  },
 ];
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<SectionId>(SectionId.HOME);
   const [servicesVisible, setServicesVisible] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLElement>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   // Form State
@@ -296,8 +308,8 @@ const App: React.FC = () => {
                 <div
                   key={idx}
                   className={`group p-8 rounded-3xl bg-neu-base shadow-neu hover:shadow-neu-pressed transition-all duration-700 transform hover:-translate-y-2
-                    ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}
-                  `}
+                      ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}
+                    `}
                   style={{ transitionDelay: `${idx * 150}ms` }}
                 >
                   <div className="w-16 h-16 rounded-2xl bg-neu-base shadow-neu flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
