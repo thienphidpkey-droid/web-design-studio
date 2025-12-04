@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Image, Environment } from '@react-three/drei';
+import { Image, Environment, Float } from '@react-three/drei';
 import * as THREE from 'three';
 import { ProjectItem } from '../types';
 
@@ -8,64 +8,49 @@ interface ProjectCarouselProps {
   projects: ProjectItem[];
 }
 
-const CARD_WIDTH = 3.5;
-const CARD_HEIGHT = 2.2;
+const RADIUS = 4; // Radius of the circular carousel
+const CARD_WIDTH = 2.5;
+const CARD_HEIGHT = 1.6;
 
 const CarouselItem = ({
   project,
   index,
-  total
+  total,
+  groupRotation
 }: {
   project: ProjectItem;
   index: number;
   total: number;
+  groupRotation: number;
 }) => {
   const ref = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
 
   // Card dimensions with padding for white background
-  const PADDING = 0.15;
+  const PADDING = 0.12;
   const CARD_BG_WIDTH = CARD_WIDTH + PADDING * 2;
   const CARD_BG_HEIGHT = CARD_HEIGHT + PADDING * 2;
 
-  // Calculate stacked position - cards fan out from center
-  const stackOffset = index * 0.05; // Slight offset for depth
-  const fanAngle = ((index - (total - 1) / 2) * 8) * (Math.PI / 180); // Fan out 8 degrees per card
-  const slideDistance = index * 0.8; // How far to slide each card horizontally
+  // Calculate position in circle
+  const angle = (index / total) * Math.PI * 2;
+  const x = Math.cos(angle) * RADIUS;
+  const z = Math.sin(angle) * RADIUS;
 
-  useFrame((state) => {
+  useFrame(() => {
     if (ref.current) {
       // Smooth scale animation on hover
-      const targetScale = hovered ? 1.12 : 1;
+      const targetScale = hovered ? 1.15 : 1;
       ref.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
 
-      // Animate cards sliding out - use sine wave for smooth "dealing" animation
-      const time = state.clock.elapsedTime;
-      const dealDelay = index * 0.15; // Stagger each card's animation
-      const animationProgress = Math.min(1, Math.max(0, (time - dealDelay) * 1.5));
-
-      // Smooth easing function
-      const eased = animationProgress < 0.5
-        ? 2 * animationProgress * animationProgress
-        : 1 - Math.pow(-2 * animationProgress + 2, 2) / 2;
-
-      // Position: start stacked, then fan out
-      const targetX = slideDistance * eased;
-      const targetY = stackOffset * 2 * (1 - eased); // Cards drop down slightly as they deal
-      const targetZ = -stackOffset * (1 - eased); // Start stacked, spread in Z
-
-      ref.current.position.x = targetX;
-      ref.current.position.y = targetY;
-      ref.current.position.z = targetZ;
-
-      // Rotation: slight tilt as cards fan out
-      ref.current.rotation.z = fanAngle * eased;
+      // Cards always face the center
+      ref.current.lookAt(0, 0, 0);
     }
   });
 
   return (
     <group
       ref={ref}
+      position={[x, 0, z]}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
     >
@@ -80,7 +65,7 @@ const CarouselItem = ({
       </mesh>
 
       {/* Shadow plane */}
-      <mesh position={[0.08, -0.08, -0.03]}>
+      <mesh position={[0.06, -0.06, -0.03]}>
         <planeGeometry args={[CARD_BG_WIDTH, CARD_BG_HEIGHT]} />
         <meshBasicMaterial
           color="black"
@@ -101,17 +86,32 @@ const CarouselItem = ({
   );
 };
 
-const CardStack = ({ projects }: { projects: ProjectItem[] }) => {
+const CircularCarousel = ({ projects }: { projects: ProjectItem[] }) => {
   const groupRef = useRef<THREE.Group>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const rotationRef = useRef(0);
+
+  useFrame((state, delta) => {
+    if (groupRef.current && !isHovered) {
+      // Rotate the entire carousel around Y axis (horizontal rotation)
+      rotationRef.current += delta * 0.3;
+      groupRef.current.rotation.y = rotationRef.current;
+    }
+  });
 
   return (
-    <group ref={groupRef} position={[-2, 0, 0]}>
+    <group
+      ref={groupRef}
+      onPointerOver={() => setIsHovered(true)}
+      onPointerOut={() => setIsHovered(false)}
+    >
       {projects.map((project, i) => (
         <CarouselItem
           key={i}
           project={project}
           index={i}
           total={projects.length}
+          groupRotation={rotationRef.current}
         />
       ))}
     </group>
@@ -121,13 +121,16 @@ const CardStack = ({ projects }: { projects: ProjectItem[] }) => {
 const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ projects }) => {
   return (
     <div className="w-full h-[600px] relative z-10 cursor-pointer">
-      <Canvas camera={{ position: [0, 0, 8], fov: 45 }} dpr={[1, 2]}>
+      <Canvas camera={{ position: [0, 2, 10], fov: 50 }} dpr={[1, 2]}>
         <ambientLight intensity={1.2} />
-        <spotLight position={[10, 10, 10]} angle={0.2} penumbra={1} intensity={0.8} />
-        <pointLight position={[-10, 5, -5]} intensity={0.3} />
+        <spotLight position={[10, 10, 10]} angle={0.3} penumbra={1} intensity={0.8} />
+        <pointLight position={[-10, 5, -5]} intensity={0.4} />
+        <directionalLight position={[0, 5, 5]} intensity={0.5} />
         <Environment preset="city" />
 
-        <CardStack projects={projects} />
+        <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.3}>
+          <CircularCarousel projects={projects} />
+        </Float>
       </Canvas>
     </div>
   );
