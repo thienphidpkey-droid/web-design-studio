@@ -60,7 +60,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onBackClick }) => {
                             className="relative group rounded-3xl bg-neu-base shadow-neu overflow-hidden aspect-[4/3] cursor-pointer hover:shadow-neu-pressed transition-all duration-300 block"
                         >
                             {/* Conditional Poster Background */}
-                            {['Cosplay Store', 'Street Impact Fashion', 'Velocity Digital'].includes(project.title) ? (
+                            {project.image && (project.image.includes('_mockup_') || ['Cosplay Store', 'Street Impact Fashion', 'Velocity Digital'].includes(project.title)) ? (
                                 <div className="absolute inset-0">
                                     <img
                                         src={project.image}

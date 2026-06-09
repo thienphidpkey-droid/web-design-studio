@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
-Sitemap: https://creativeflow.vercel.app/sitemap.xml
+Sitemap: https://www.heonamedia.com/sitemap.xml

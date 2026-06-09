@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { Code, Layout, Smartphone, Mail, Github, Twitter, Linkedin, Palette, Layers, Zap, ExternalLink, Globe, ArrowUp, Instagram, Dribbble } from 'lucide-react';
+import { Code, Layout, Smartphone, Mail, Github, Twitter, Linkedin, Palette, Layers, Zap, ExternalLink, Globe, ArrowUp, Instagram, Dribbble, ArrowUpRight } from 'lucide-react';
 import NeuButton from './components/NeuButton';
 import Projects from './components/Projects';
 import { SectionId, ProjectItem } from './types';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Lazy load heavy components
 const ChatBot = lazy(() => import('./components/ChatBot'));
@@ -13,25 +18,25 @@ const ALL_PROJECTS: ProjectItem[] = [
     title: "Cosplay Store",
     cat: "Cosplay & Anime E-commerce",
     url: "https://cosplay-store.vercel.app/",
-    image: "/projects/cosplay-store.png"
+    image: "/projects/cosplay_web_mockup_1781006160624.png"
   },
   {
     title: "Street Impact Fashion",
     cat: "Streetwear Fashion",
     url: "https://street-impact-fashion.vercel.app/",
-    image: "/projects/street-impact-fashion.png"
+    image: "/projects/streetwear_mockup_1781006377766.png"
   },
   {
     title: "Velocity Digital",
     cat: "Professional Running & Sports",
     url: "https://velocity-digital.vercel.app/",
-    image: "/projects/velocity-digital.png"
+    image: "/projects/sports_shoes_mockup_1781006390102.png"
   },
   {
     title: "Luxora",
     cat: "Luxury Watch Collections",
     url: "https://luxora-timeless-elegance.vercel.app/",
-    image: "/projects/luxora.png"
+    image: "/projects/watch_mockup_1781006403005.png"
   },
   {
     title: "Lullaby Massage",
@@ -43,55 +48,55 @@ const ALL_PROJECTS: ProjectItem[] = [
     title: "Kinetic Noir",
     cat: "Neural Mobility & Automotive",
     url: "https://kinetic-noir-tau.vercel.app/",
-    image: "/projects/kinetic-noir.png"
+    image: "/projects/moto_mockup_1781006415136.png"
   },
   {
     title: "CORE_EARTH",
     cat: "Ceramics & Craft Art",
     url: "https://the-curated-earth.vercel.app/",
-    image: "/projects/core-earth.png"
+    image: "/projects/ceramics_mockup_1781006427365.png"
   },
   {
     title: "Gốm Bàu Trúc",
     cat: "Cultural & Pottery Art",
     url: "https://g-m-b-u-tr-c.vercel.app/",
-    image: "/projects/gom-bau-truc.png"
+    image: "/projects/pottery_mockup_1781006439405.png"
   },
   {
     title: "VELORAH | AI Agency",
     cat: "AI & Creative Studio",
     url: "https://velorah-pi.vercel.app/",
-    image: "/projects/velorah.png"
+    image: "/projects/ai_agency_mockup_1781006459792.png"
   },
   {
     title: "Nova Creative Agency",
     cat: "Creative Agency",
     url: "https://nova-creative-agency.vercel.app/",
-    image: "https://i.postimg.cc/RV3yHgGB/download_(21).png"
+    image: "/projects/nova_agency_mockup_1781006472995.png"
   },
   {
     title: "Heona Media",
     cat: "Creative Agency",
     url: "https://heonamedia.vercel.app/",
-    image: "https://i.postimg.cc/nLs1yFp1/a1.jpg"
+    image: "/projects/heona_media_mockup_1781006485032.png"
   },
   {
     title: "Neon Glide Patin",
     cat: "Sports E-commerce",
     url: "https://neon-glide-patin.vercel.app/",
-    image: "https://i.postimg.cc/MGcYC6qt/a2.jpg"
+    image: "/projects/patin_mockup_1781006498098.png"
   },
   {
     title: "Emerald Estate",
     cat: "Real Estate",
     url: "https://emerald-estate.vercel.app/",
-    image: "https://i.postimg.cc/XvZgRj4K/a3.jpg"
+    image: "/projects/real_estate_mockup_1781006509214.png"
   },
   {
     title: "Sen Mộc Spa",
     cat: "Beauty & Wellness",
     url: "https://senmocspa.vercel.app/",
-    image: "https://i.postimg.cc/2SHDHwSh/spa-nedir.jpg"
+    image: "/projects/spa_web_mockup_1781006173419.png"
   },
   {
     title: "Minh An Studio",
@@ -145,7 +150,7 @@ const ALL_PROJECTS: ProjectItem[] = [
     title: "Business Automation",
     cat: "SaaS Platform",
     url: "https://business-automation-ten.vercel.app/",
-    image: "https://i.postimg.cc/Mp3D3M2X/a13.jpg"
+    image: "/projects/saas_web_mockup_1781006184740.png"
   },
   {
     title: "WanderLust",
@@ -180,6 +185,7 @@ const ALL_PROJECTS: ProjectItem[] = [
 ];
 
 const App: React.FC = () => {
+  const mainRef = useRef<HTMLDivElement>(null);
   const [activeSection, setActiveSection] = useState<SectionId>(SectionId.HOME);
   const [servicesVisible, setServicesVisible] = useState(false);
   const servicesRef = useRef<HTMLElement>(null);
@@ -221,24 +227,31 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Intersection Observer for Services Animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setServicesVisible(true);
-          observer.disconnect(); // Only animate once
-        }
+  // GSAP Animations
+  useGSAP(() => {
+    // Hero Elements Staggered Entrance
+    gsap.to('.gsap-hero-element', {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: 'power3.out',
+      delay: 0.1
+    });
+
+    // Services Scroll Animation
+    gsap.to('.gsap-service-card', {
+      scrollTrigger: {
+        trigger: servicesRef.current,
+        start: 'top 80%',
       },
-      { threshold: 0.2 } // Trigger when 20% visible
-    );
-
-    if (servicesRef.current) {
-      observer.observe(servicesRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      stagger: 0.15,
+      ease: 'power3.out',
+    });
+  }, { scope: mainRef });
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -283,7 +296,7 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-neu-base text-gray-700 overflow-x-hidden font-sans selection:bg-purple-200 selection:text-purple-900">
+    <div ref={mainRef} className="min-h-screen bg-neu-base text-gray-700 overflow-x-hidden font-sans selection:bg-purple-200 selection:text-purple-900">
 
       {/* Background Ambient Elements for Hyperrealism/Color */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
@@ -292,27 +305,30 @@ const App: React.FC = () => {
         <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-pink-300/30 rounded-full blur-[120px] mix-blend-multiply animate-float" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'py-3 bg-neu-base/90 backdrop-blur-md shadow-sm' : 'py-6 bg-transparent'}`}>
-        <div className="container mx-auto px-6 flex justify-between items-center">
+      {/* Navigation - Fluid Island */}
+      <nav className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${isScrolled ? 'top-6 w-[95%] max-w-5xl py-3 px-6 bg-neu-base/80 backdrop-blur-2xl shadow-neu rounded-full border border-white/20' : 'top-6 w-full max-w-7xl py-6 px-10 bg-transparent'}`}>
+        <div className="flex justify-between items-center">
           <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 cursor-pointer" onClick={() => scrollTo(SectionId.HOME)}>
             CreativeFlow.
           </div>
-          <div className="hidden md:flex gap-4 items-center">
+          <div className="hidden md:flex gap-2 items-center bg-neu-base/40 p-1.5 rounded-full border border-white/10 shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)]">
             {navItems.map((item) => (
-              <NeuButton
+              <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={`!px-5 !py-2 !text-sm transition-transform hover:scale-105 ${item.colorClass} ${activeSection === item.id ? 'font-bold' : 'font-medium'}`}
-                variant="secondary"
+                className={`px-5 py-2 text-sm rounded-full transition-all duration-300 hover:scale-[0.98] ${item.colorClass} ${activeSection === item.id ? 'font-bold shadow-neu-pressed bg-neu-base' : 'font-medium shadow-none bg-transparent hover:shadow-neu hover:bg-neu-base'}`}
               >
                 {item.label}
-              </NeuButton>
+              </button>
             ))}
-            <div className="w-px h-8 bg-gray-300 mx-2"></div>
-            <NeuButton onClick={() => scrollTo(SectionId.CONTACT)} className="!px-6 !py-2 !text-sm border-2 border-white/50 text-gray-700">
-              Bắt đầu ngay
-            </NeuButton>
+          </div>
+          <div className="hidden md:block">
+            <button onClick={() => scrollTo(SectionId.CONTACT)} className="group flex items-center gap-3 bg-neu-base rounded-full pl-6 pr-2 py-2 shadow-neu transition-all duration-500 hover:scale-[0.98] active:scale-[0.95] border border-white/20">
+              <span className="text-sm font-bold text-gray-700">Bắt đầu ngay</span>
+              <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.5)] transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105 border border-white/10">
+                <ArrowUpRight size={16} />
+              </div>
+            </button>
           </div>
         </div>
       </nav>
@@ -324,22 +340,29 @@ const App: React.FC = () => {
         <section id={SectionId.HOME} className="min-h-screen flex items-center justify-center pt-20 relative scroll-mt-28">
           <div className="container mx-auto px-6 flex flex-col items-center text-center max-w-4xl">
 
-            <div className="space-y-8 animate-in slide-in-from-left duration-1000 z-20 flex flex-col items-center">
-              <div className="inline-block px-4 py-2 rounded-full shadow-neu-pressed bg-neu-base text-blue-500 font-semibold text-sm">
+            <div className="space-y-8 z-20 flex flex-col items-center">
+              <div className="gsap-hero-element opacity-0 translate-y-10 inline-block px-4 py-2 rounded-full shadow-neu-pressed bg-neu-base text-blue-500 font-semibold text-sm border border-white/20">
                 👋 Freelance Web Designer & Developer
               </div>
-              <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-gray-800">
+              <h1 className="gsap-hero-element opacity-0 translate-y-10 text-5xl md:text-7xl font-extrabold leading-tight text-gray-800 tracking-tight">
                 Biến ý tưởng thành <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
                   Hiện Thực Số
                 </span>
               </h1>
-              <p className="text-lg text-gray-500 max-w-2xl leading-relaxed mx-auto">
+              <p className="gsap-hero-element opacity-0 translate-y-10 text-lg text-gray-500 max-w-2xl leading-relaxed mx-auto font-medium">
                 Tôi tạo ra những trải nghiệm web độc đáo với phong cách Neumorphism hiện đại và hiệu ứng UI/UX sống động, giúp thương hiệu của bạn nổi bật.
               </p>
-              <div className="flex flex-wrap justify-center gap-6 mt-4">
-                <NeuButton onClick={() => scrollTo(SectionId.PROJECTS)} className="text-blue-600 !px-8 !py-4 font-bold text-lg">Khám phá Dự án</NeuButton>
-                <NeuButton variant="secondary" onClick={() => scrollTo(SectionId.CONTACT)} className="!px-8 !py-4 font-bold text-lg text-gray-600">Liên hệ ngay</NeuButton>
+              <div className="gsap-hero-element opacity-0 translate-y-10 flex flex-wrap justify-center gap-6 mt-4">
+                <button onClick={() => scrollTo(SectionId.PROJECTS)} className="group flex items-center gap-4 bg-neu-base rounded-full pl-8 pr-3 py-3 shadow-neu transition-all duration-500 hover:scale-[0.98] active:scale-[0.95] border border-white/20">
+                  <span className="text-lg font-bold text-blue-600">Khám phá Dự án</span>
+                  <div className="w-10 h-10 rounded-full bg-blue-50/50 flex items-center justify-center text-blue-600 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)] border border-white/40 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105">
+                    <ArrowUpRight size={20} />
+                  </div>
+                </button>
+                <button onClick={() => scrollTo(SectionId.CONTACT)} className="group flex items-center gap-4 bg-transparent rounded-full pl-8 pr-3 py-3 shadow-neu-pressed transition-all duration-500 hover:scale-[0.98] active:scale-[0.95] border border-white/10">
+                  <span className="text-lg font-bold text-gray-600">Liên hệ ngay</span>
+                </button>
               </div>
             </div>
 
@@ -349,9 +372,10 @@ const App: React.FC = () => {
         {/* SERVICES SECTION */}
         <section id={SectionId.SERVICES} ref={servicesRef} className="py-24 relative scroll-mt-28">
           <div className="container mx-auto px-6">
-            <div className={`text-center mb-16 transition-all duration-700 transform ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Dịch Vụ Cung Cấp</h2>
-              <p className="text-gray-500 max-w-xl mx-auto">Giải pháp toàn diện cho nhu cầu kỹ thuật số của bạn, từ thiết kế đến lập trình.</p>
+            <div className="gsap-service-card opacity-0 translate-y-10 text-center mb-16">
+              <div className="inline-block px-3 py-1 mb-4 text-[10px] uppercase tracking-[0.2em] font-bold text-purple-600 bg-purple-100/50 rounded-full border border-purple-200">Our Services</div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 tracking-tight">Dịch Vụ Cung Cấp</h2>
+              <p className="text-gray-500 max-w-xl mx-auto text-lg">Giải pháp toàn diện cho nhu cầu kỹ thuật số của bạn, từ thiết kế đến lập trình.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -360,22 +384,19 @@ const App: React.FC = () => {
                 { icon: <Code size={40} className="text-blue-500" />, title: "Web Development", desc: "Xây dựng website hiệu năng cao, chuẩn SEO, responsive với các công nghệ mới nhất." },
                 { icon: <Layers size={40} className="text-purple-500" />, title: "3D Visuals", desc: "Tích hợp các yếu tố 3D tương tác và hiệu ứng chuyển động mượt mà vào website." }
               ].map((service, idx) => (
-                <div
-                  key={idx}
-                  className={`group p-8 rounded-3xl bg-neu-base shadow-neu hover:shadow-neu-pressed transition-all duration-700 transform hover:-translate-y-2
-                      ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}
-                    `}
-                  style={{ transitionDelay: `${idx * 150}ms` }}
-                >
-                  <div className="w-16 h-16 rounded-2xl bg-neu-base shadow-neu flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <div className="group-hover:animate-bounce">
-                      {service.icon}
+                <div key={idx} className="gsap-service-card opacity-0 translate-y-16 p-2 rounded-[2.5rem] bg-neu-base/50 shadow-neu border border-white/30 hover:-translate-y-2 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
+                  <div className="group h-full p-8 rounded-[calc(2.5rem-0.5rem)] bg-neu-base shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)] border border-white/10 relative overflow-hidden flex flex-col items-start">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                    <div className="w-16 h-16 rounded-2xl bg-neu-base shadow-neu flex items-center justify-center mb-6 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] border border-white/20 group-hover:-translate-y-2 group-hover:shadow-neu-pressed">
+                      <div className="transition-transform duration-500 group-hover:scale-110">
+                        {service.icon}
+                      </div>
                     </div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3 tracking-tight">{service.title}</h3>
+                    <p className="text-gray-500 leading-relaxed font-medium">
+                      {service.desc}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-700 mb-3">{service.title}</h3>
-                  <p className="text-gray-500 leading-relaxed">
-                    {service.desc}
-                  </p>
                 </div>
               ))}
             </div>
@@ -390,11 +411,13 @@ const App: React.FC = () => {
         {/* CONTACT SECTION */}
         <section id={SectionId.CONTACT} className="py-24 pb-32 scroll-mt-28">
           <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto bg-neu-base rounded-[3rem] shadow-neu p-8 md:p-12 relative overflow-hidden">
-              {/* Decorative Circle */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="max-w-4xl mx-auto p-3 bg-neu-base/40 rounded-[3.5rem] shadow-neu border border-white/30">
+              <div className="bg-neu-base rounded-[calc(3.5rem-0.75rem)] shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)] border border-white/10 p-8 md:p-12 relative overflow-hidden">
+                {/* Decorative Circle */}
+                <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
-              <div className="relative z-10 text-center mb-10">
+                <div className="relative z-10 text-center mb-10">
+                  <div className="inline-block px-3 py-1 mb-4 text-[10px] uppercase tracking-[0.2em] font-bold text-teal-600 bg-teal-100/50 rounded-full border border-teal-200">Connect</div>
                 <h2 className="text-4xl font-bold text-gray-800 mb-4">Sẵn Sàng Hợp Tác?</h2>
                 <p className="text-gray-500">Hãy để lại thông tin, tôi sẽ liên hệ lại trong vòng 24h.</p>
               </div>
@@ -462,11 +485,15 @@ const App: React.FC = () => {
                 </div>
 
                 <div className="pt-4 flex justify-center">
-                  <NeuButton type="submit" className="w-full md:w-auto !px-12" disabled={isSubmitting}>
-                    {isSubmitting ? 'Đang gửi...' : 'Gửi Tin Nhắn'}
-                  </NeuButton>
+                  <button type="submit" disabled={isSubmitting} className="group w-full md:w-auto flex items-center justify-center gap-4 bg-neu-base rounded-full pl-10 pr-3 py-3 shadow-neu transition-all duration-500 hover:scale-[0.98] active:scale-[0.95] border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span className="text-lg font-bold text-gray-700">{isSubmitting ? 'Đang gửi...' : 'Gửi Tin Nhắn'}</span>
+                    <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-[inset_0_1px_2px_rgba(255,255,255,0.5)] transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105 border border-white/10">
+                      <ArrowUpRight size={20} />
+                    </div>
+                  </button>
                 </div>
               </form>
+              </div>
             </div>
           </div>
         </section>
