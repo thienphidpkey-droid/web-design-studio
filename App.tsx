@@ -102,49 +102,49 @@ const ALL_PROJECTS: ProjectItem[] = [
     title: "Minh An Studio",
     cat: "Photography Portfolio",
     url: "https://minh-an-studio.vercel.app/",
-    image: "https://i.postimg.cc/g0wKCzmq/a5.jpg"
+    image: "/projects/minh-an-studio.png"
   },
   {
     title: "Nha Khoa Tâm Đức",
     cat: "Medical Clinic",
     url: "https://nha-khoa-t-m-c.vercel.app/",
-    image: "https://i.postimg.cc/DzWc9vnb/a6.jpg"
+    image: "/projects/nha-khoa-tam-duc.png"
   },
   {
     title: "Web design CreativeFlow",
     cat: "Design Studio",
     url: "#",
-    image: "https://i.postimg.cc/KYK56GxT/a7.jpg"
+    image: "/projects/creative-flow.png"
   },
   {
     title: "Camera Pro",
     cat: "Photography Gear",
     url: "https://camerapro-eight.vercel.app/",
-    image: "https://i.postimg.cc/hGJ0kDcz/a8.jpg"
+    image: "/projects/camera-pro.png"
   },
   {
     title: "English Note Center",
     cat: "Education",
     url: "https://english-note-center.vercel.app/",
-    image: "https://i.postimg.cc/LsqVc92J/a9.jpg"
+    image: "/projects/english-note-center.png"
   },
   {
     title: "Luxe Bijoux",
     cat: "Luxury Jewelry",
     url: "https://luxe-bijoux.vercel.app/",
-    image: "https://i.postimg.cc/jS3X3w0N/a10.jpg"
+    image: "/projects/luxe-bijoux.png"
   },
   {
     title: "Luxury Fashion",
     cat: "Fashion E-commerce",
     url: "https://luxury-fashion.vercel.app/",
-    image: "https://i.postimg.cc/mgpwpzfF/a11.jpg"
+    image: "/projects/luxury-fashion.png"
   },
   {
     title: "Portfolio",
     cat: "Creative Portfolio",
     url: "https://portfolio-thienphidpkey-droids-projects.vercel.app/",
-    image: "https://i.postimg.cc/JzYqYDV0/a12.jpg"
+    image: "/projects/creative-portfolio.png"
   },
   {
     title: "Business Automation",
@@ -156,19 +156,19 @@ const ALL_PROJECTS: ProjectItem[] = [
     title: "WanderLust",
     cat: "Travel App",
     url: "https://liquid-automation.vercel.app/",
-    image: "https://i.postimg.cc/QxRPkcns/download_(22).png"
+    image: "/projects/wanderlust.png"
   },
   {
     title: "Notebook Flips",
     cat: "Interactive Notebook",
     url: "https://notebook-flips.vercel.app/",
-    image: "https://i.postimg.cc/2S9w9bRj/a15.jpg"
+    image: "/projects/notebook-flips.png"
   },
   {
     title: "Portfolio Glass Morphism",
     cat: "Web Design",
     url: "https://glass-morphism-portfolio.vercel.app/",
-    image: "https://i.postimg.cc/kXF18L8D/download-(23).png"
+    image: "/projects/portfolio-glass.png"
   },
   {
     title: "Maison Or",
@@ -181,6 +181,12 @@ const ALL_PROJECTS: ProjectItem[] = [
     cat: "Mecha & Model Kits",
     url: "https://gundam-armory.vercel.app/",
     image: "/projects/gundam-armory.png"
+  },
+  {
+    title: "Math Class",
+    cat: "Education Platform",
+    url: "https://math-class-real.vercel.app/",
+    image: "/projects/math_class_mockup.png"
   }
 ];
 
