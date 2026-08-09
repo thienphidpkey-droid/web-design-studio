@@ -1,125 +1,303 @@
 <!DOCTYPE html>
-<html lang="vi">
-
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Heona Media - Thiết Kế Web Freelance & Giải Pháp Số</title>
-    <meta name="description"
-        content="Heona Media chuyên thiết kế website Neumorphism, phát triển ứng dụng web và giải pháp số sáng tạo. Biến ý tưởng của bạn thành hiện thực với công nghệ hiện đại.">
-    <meta name="keywords"
-        content="thiết kế web, web design, neumorphism, freelance developer, react, tailwind css, 3d web, creative agency">
-    <meta name="author" content="Heona Media">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    
-    <!-- Geo SEO -->
-    <meta name="geo.region" content="VN-SG">
-    <meta name="geo.placename" content="Ho Chi Minh City">
-    <meta name="geo.position" content="10.8231;106.6297">
-    <meta name="ICBM" content="10.8231, 106.6297">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.heonamedia.com/" />
+    <!-- ═══════════════════════════════════════
+         PRIMARY SEO META
+    ═══════════════════════════════════════ -->
+    <title>FEN — Freelance Web Designer & Developer | Vietnam</title>
+    <meta name="description" content="FEN is a freelance web designer and developer based in Vietnam. 32+ websites across healthcare, education, fashion, beauty, real estate, and creative studios. Available worldwide." />
+    <meta name="keywords" content="freelance web designer vietnam, web design portfolio, web developer vietnam, thiết kế website, portfolio web designer, dark web design, premium website design, React developer vietnam" />
+    <meta name="author" content="FEN" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://white-web-design.vercel.app/" />
 
-    <!-- OpenGraph (Facebook, Zalo, LinkedIn) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.heonamedia.com/">
-    <meta property="og:title" content="Heona Media - Thiết Kế Web Freelance & Giải Pháp Số">
-    <meta property="og:description"
-        content="Chuyên thiết kế website Neumorphism, phát triển ứng dụng web và giải pháp số sáng tạo.">
-    <meta property="og:image" content="https://www.heonamedia.com/og-image.jpg">
+    <!-- ═══════════════════════════════════════
+         LANGUAGE & GEOGRAPHIC SIGNALS
+    ═══════════════════════════════════════ -->
+    <meta name="geo.region" content="VN" />
+    <meta name="geo.placename" content="Vietnam" />
+    <meta name="geo.position" content="10.8231;106.6297" />
+    <meta name="ICBM" content="10.8231, 106.6297" />
+    <link rel="alternate" hreflang="en" href="https://white-web-design.vercel.app/" />
+    <link rel="alternate" hreflang="vi" href="https://white-web-design.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://white-web-design.vercel.app/" />
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.heonamedia.com/">
-    <meta name="twitter:title" content="Heona Media - Thiết Kế Web & Giải Pháp Số">
-    <meta name="twitter:description" content="Chuyên thiết kế website Neumorphism, phát triển ứng dụng web và giải pháp số sáng tạo.">
-    <meta name="twitter:image" content="https://www.heonamedia.com/og-image.jpg">
+    <!-- ═══════════════════════════════════════
+         OPEN GRAPH (Facebook, LinkedIn, Slack)
+    ═══════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FEN — Digital Work" />
+    <meta property="og:title" content="FEN — Freelance Web Designer & Developer | Vietnam" />
+    <meta property="og:description" content="32+ websites. Different industries. One person behind the screen. Premium web design and development from Vietnam, working worldwide." />
+    <meta property="og:url" content="https://white-web-design.vercel.app/" />
+    <meta property="og:image" content="https://white-web-design.vercel.app/og-image.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FEN Portfolio — Freelance Web Designer based in Vietnam" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="vi_VN" />
 
-    <!-- JSON-LD for AI & Search Engine (LocalBusiness) -->
+    <!-- ═══════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FEN — Freelance Web Designer & Developer | Vietnam" />
+    <meta name="twitter:description" content="32+ websites. Different industries. One person behind the screen. Premium dark web design from Vietnam." />
+    <meta name="twitter:image" content="https://white-web-design.vercel.app/og-image.webp" />
+    <meta name="twitter:image:alt" content="FEN Portfolio — Premium web design from Vietnam" />
+
+    <!-- ═══════════════════════════════════════
+         AI / GEO OPTIMIZATION SIGNALS
+         For ChatGPT, Gemini, Perplexity, Claude
+    ═══════════════════════════════════════ -->
+    <meta name="ai-content-declaration" content="human-authored" />
+    <!-- llms.txt discovery -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt — AI-readable site summary" />
+
+    <!-- ═══════════════════════════════════════
+         PWA & ICONS
+    ═══════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#8B5CF6" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="FEN" />
+
+    <!-- ═══════════════════════════════════════
+         PERFORMANCE: Preconnect & Preload
+    ═══════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="preload" as="image" href="/project_heona.webp" type="image/webp" fetchpriority="high" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- ═══════════════════════════════════════
+         STRUCTURED DATA — JSON-LD
+         Person + WebSite + ProfessionalService + Portfolio
+    ═══════════════════════════════════════ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Heona Media",
-      "image": "https://www.heonamedia.com/logo.png",
-      "@id": "https://www.heonamedia.com/",
-      "url": "https://www.heonamedia.com/",
-      "telephone": "+84 123 456 789",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Trung tâm TP.HCM",
-        "addressLocality": "Hồ Chí Minh",
-        "postalCode": "700000",
-        "addressCountry": "VN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 10.8231,
-        "longitude": 106.6297
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://www.facebook.com/heonamedia",
-        "https://twitter.com/heonamedia"
+      "@graph": [
+
+        {
+          "@type": "Person",
+          "@id": "https://white-web-design.vercel.app/#person",
+          "name": "FEN",
+          "url": "https://white-web-design.vercel.app/",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://white-web-design.vercel.app/fen_portrait.webp",
+            "width": 800,
+            "height": 1067
+          },
+          "jobTitle": "Freelance Web Designer & Developer",
+          "description": "Freelance web designer and developer based in Vietnam with 4+ years of experience. Specializes in premium dark luxury interfaces, editorial design, and full-stack web development across healthcare, education, fashion, beauty, real estate, and creative studio sectors.",
+          "knowsAbout": [
+            "Web Design",
+            "Front-end Development",
+            "UI/UX Design",
+            "Creative Direction",
+            "React",
+            "TypeScript",
+            "GSAP Animation",
+            "Tailwind CSS",
+            "Figma",
+            "Dark Luxury Web Design",
+            "Editorial Design",
+            "Motion Design"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "VN",
+            "addressRegion": "Ho Chi Minh City"
+          },
+          "email": "hello@fen.studio",
+          "sameAs": [],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Design & Development Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Design" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Front-end Development" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Creative Direction" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page Design" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portfolio Website Design" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-commerce Website Design" } }
+            ]
+          }
+        },
+
+        {
+          "@type": "WebSite",
+          "@id": "https://white-web-design.vercel.app/#website",
+          "url": "https://white-web-design.vercel.app/",
+          "name": "FEN — Digital Work",
+          "description": "A curated digital archive of 32+ websites designed and developed by FEN — a freelance web designer based in Vietnam.",
+          "publisher": { "@id": "https://white-web-design.vercel.app/#person" },
+          "inLanguage": ["en", "vi"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://white-web-design.vercel.app/#archive",
+            "query-input": "required name=search_term_string"
+          }
+        },
+
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://white-web-design.vercel.app/#service",
+          "name": "FEN — Freelance Web Design & Development",
+          "url": "https://white-web-design.vercel.app/",
+          "logo": "https://white-web-design.vercel.app/favicon.svg",
+          "image": "https://white-web-design.vercel.app/hero_mockup.webp",
+          "description": "Premium freelance web design and development services from Vietnam. Specializing in dark luxury interfaces, editorial portfolios, healthcare websites, education platforms, fashion e-commerce, beauty brands, and corporate websites.",
+          "founder": { "@id": "https://white-web-design.vercel.app/#person" },
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          },
+          "serviceType": ["Web Design", "Web Development", "UI/UX Design", "Creative Direction"],
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "VN",
+            "addressRegion": "Ho Chi Minh City"
+          },
+          "email": "hello@fen.studio",
+          "knowsAbout": ["Web Design", "Front-end Development", "React", "TypeScript", "Dark UI", "Editorial Design"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Design & Development Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Web Design",
+                  "description": "Premium visual design for websites — layout, typography, color systems and component design in Figma."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Front-end Development",
+                  "description": "React, TypeScript, Vite, Tailwind CSS — performant, accessible, production-ready websites."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Landing Page Design",
+                  "description": "High-converting, visually premium landing pages designed and developed end-to-end."
+                }
+              }
+            ]
+          }
+        },
+
+        {
+          "@type": "ItemList",
+          "@id": "https://white-web-design.vercel.app/#portfolio",
+          "name": "FEN Portfolio — 32 Website Projects",
+          "description": "A curated archive of 32 websites designed and developed by FEN across healthcare, education, fashion, beauty, real estate, and creative studio industries.",
+          "numberOfItems": 32,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Heona Media", "url": "https://www.heonamedia.com/", "description": "Creative studio website" },
+            { "@type": "ListItem", "position": 2, "name": "Minh An Studio", "url": "https://minh-an-studio.vercel.app/", "description": "Boutique creative studio portfolio" },
+            { "@type": "ListItem", "position": 3, "name": "Nova Creative Agency", "url": "https://nova-creative-agency.vercel.app/", "description": "Full-service creative agency website" },
+            { "@type": "ListItem", "position": 4, "name": "Velocity Digital", "url": "https://velocity-digital.vercel.app/", "description": "Digital agency landing page" },
+            { "@type": "ListItem", "position": 5, "name": "Liquid Automation", "url": "https://liquid-automation.vercel.app/", "description": "SaaS automation platform website" },
+            { "@type": "ListItem", "position": 6, "name": "Business Automation", "url": "https://business-automation-ten.vercel.app/", "description": "B2B automation company website" },
+            { "@type": "ListItem", "position": 7, "name": "Emerald Estate", "url": "https://emerald-estate.vercel.app/", "description": "Premium real estate developer website" },
+            { "@type": "ListItem", "position": 8, "name": "Nha Khoa TMC", "url": "https://nha-khoa-t-m-c.vercel.app/", "description": "Dental clinic website" },
+            { "@type": "ListItem", "position": 9, "name": "Senmoc Spa", "url": "https://senmocspa.vercel.app/", "description": "Luxury spa website" },
+            { "@type": "ListItem", "position": 10, "name": "Lullaby Massage", "url": "https://lullaby-massage.vercel.app/", "description": "Massage and wellness brand website" },
+            { "@type": "ListItem", "position": 11, "name": "Anna Ngoc Anh Branding", "url": "https://anna-ng-c-anh-branding.vercel.app/", "description": "Beauty professional branding website" },
+            { "@type": "ListItem", "position": 12, "name": "Maison Or Perfume", "url": "https://maison-or-luxury-perfume-boutique.vercel.app/", "description": "Luxury perfume boutique" },
+            { "@type": "ListItem", "position": 13, "name": "Luxe Bijoux", "url": "https://luxe-bijoux.vercel.app/", "description": "Fine jewelry brand website" },
+            { "@type": "ListItem", "position": 14, "name": "Velorah", "url": "https://velorah-pi.vercel.app/", "description": "Beauty and wellness brand" },
+            { "@type": "ListItem", "position": 15, "name": "The Curated Earth", "url": "https://the-curated-earth.vercel.app/", "description": "Eco beauty brand website" },
+            { "@type": "ListItem", "position": 16, "name": "Luxora Elegance", "url": "https://luxora-timeless-elegance.vercel.app/", "description": "Fashion e-commerce website" },
+            { "@type": "ListItem", "position": 17, "name": "Street Impact Fashion", "url": "https://street-impact-fashion.vercel.app/", "description": "Streetwear brand website" },
+            { "@type": "ListItem", "position": 18, "name": "UniLearn", "url": "https://uni-learn-xi.vercel.app/", "description": "University learning platform" },
+            { "@type": "ListItem", "position": 19, "name": "English Note Center", "url": "https://english-note-center.vercel.app/", "description": "Language learning center website" },
+            { "@type": "ListItem", "position": 20, "name": "Notebook Flips", "url": "https://notebook-flips.vercel.app/", "description": "Stationery and education brand" }
+          ]
+        },
+
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://white-web-design.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Featured Work", "item": "https://white-web-design.vercel.app/#featured" },
+            { "@type": "ListItem", "position": 3, "name": "Project Archive", "item": "https://white-web-design.vercel.app/#archive" },
+            { "@type": "ListItem", "position": 4, "name": "About", "item": "https://white-web-design.vercel.app/#about" },
+            { "@type": "ListItem", "position": 5, "name": "Contact", "item": "https://white-web-design.vercel.app/#contact" }
+          ]
+        },
+
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What services does FEN offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FEN offers web design, front-end development, creative direction, and motion design. Services include portfolio websites, landing pages, e-commerce, healthcare websites, education platforms, corporate websites, and brand websites."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is FEN based?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FEN is based in Vietnam (Ho Chi Minh City) and works with clients worldwide remotely."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What technologies does FEN use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FEN uses React, TypeScript, Vite, Tailwind CSS, GSAP for animations, and designs in Figma. Specializes in performant, accessible, production-ready websites."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many websites has FEN designed?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FEN has designed and developed 32+ websites across industries including healthcare, education, fashion, beauty, real estate, corporate, and creative studios."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I contact FEN for a project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can contact FEN via the contact form at https://white-web-design.vercel.app/#contact or by email at hello@fen.studio."
+              }
+            }
+          ]
+        }
+
       ]
     }
     </script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="/index.css">
-    <style>
-        /* Custom Scrollbar for the right panel */
-        .hide-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .hide-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .hide-scrollbar::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: #020617;
-            /* slate-950 */
-            color: white;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
-</head>
-
-<body>
+  </head>
+  <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,27 @@
+{
+  "name": "FEN — Digital Work",
+  "short_name": "FEN",
+  "description": "Freelance web designer and developer based in Vietnam. 32+ websites across healthcare, education, fashion, beauty, real estate and creative studios.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07070A",
+  "theme_color": "#8B5CF6",
+  "lang": "en",
+  "categories": ["portfolio", "design", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/hero_mockup.jpg",
+      "sizes": "1200x900",
+      "type": "image/jpeg",
+      "label": "FEN Portfolio Homepage"
+    }
+  ]
+}

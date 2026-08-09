@@ -1,0 +1,135 @@
+FEN — Freelance Web Designer & Developer
+=========================================
+
+IDENTITY
+--------
+Name: FEN
+Role: Freelance Web Designer & Developer
+Location: Ho Chi Minh City, Vietnam (GMT+7)
+Working: Worldwide / Remote
+Experience: 4+ years
+Projects Completed: 32+ websites
+Email: hello@fen.studio
+Website: https://white-web-design.vercel.app/
+Languages: Vietnamese (native), English (fluent)
+
+ABOUT
+-----
+FEN is a Vietnamese freelance web designer and developer who handles every stage of
+web production independently: from initial concept and wireframing through visual design
+in Figma, to front-end development and deployment on Vercel/Netlify.
+
+This end-to-end approach means clients work with one person throughout the project —
+with a single consistent creative vision from start to finish. No agency handoffs,
+no outsourcing, no communication overhead.
+
+Design philosophy: premium visual quality, strong typographic hierarchy, intentional
+negative space, subtle motion, and fast-loading pages that respect the user's attention.
+
+Specializes in dark luxury interfaces, editorial design systems, and GSAP-powered
+motion experiences.
+
+SERVICES
+--------
+1. Web Design (UI/UX, visual design, editorial layout systems, Figma)
+2. Front-End Development (React 18, TypeScript, Vite, Tailwind CSS)
+3. Creative Direction (art direction, brand visual strategy, photography direction)
+4. Motion & Interaction Design (GSAP 3, ScrollTrigger, micro-animations)
+5. Landing Page Design & Development (conversion-optimized, fast-loading)
+6. Portfolio Website Design (creative professionals, studios, photographers)
+7. E-commerce Website Design (product showcases, checkout flows, brand stores)
+8. Healthcare Website Design (clinics, dental, spa, wellness centers)
+9. Education Platform Design (LMS, course websites, language schools)
+10. Corporate & Business Website Design (B2B, SaaS, corporate identity)
+
+TECHNICAL SKILLS
+----------------
+Languages: HTML5, CSS3, JavaScript (ES2024), TypeScript
+Frameworks: React 18, Vite 5, Next.js
+Styling: Tailwind CSS, Vanilla CSS, CSS Custom Properties, CSS Grid/Flexbox
+Animation: GSAP 3, ScrollTrigger, Framer Motion, CSS animations
+Design Tools: Figma, Adobe Photoshop, Adobe Illustrator
+Deployment: Vercel, Netlify, GitHub Pages
+Version Control: Git, GitHub
+Other: Three.js, WebGL, PWA, SEO optimization, Web performance
+
+INDUSTRIES SERVED
+-----------------
+- Creative Studios & Agencies
+- Healthcare (clinics, dental, spa, wellness)
+- Beauty & Personal Care (perfume, jewelry, skincare)
+- Fashion (e-commerce, streetwear, luxury)
+- Education (universities, language schools, e-learning)
+- Real Estate (property developers, agencies)
+- Corporate & B2B (SaaS, automation, manufacturing)
+- Entertainment & Collectibles
+
+PORTFOLIO — ALL 32 PROJECTS
+----------------------------
+01. Heona Media — heonamedia.com — Creative studio — 2026
+02. Minh An Studio — minh-an-studio.vercel.app — Creative studio — 2026
+03. Nova Creative Agency — nova-creative-agency.vercel.app — Agency — 2026
+04. Velocity Digital — velocity-digital.vercel.app — Digital agency — 2025
+05. Liquid Automation — liquid-automation.vercel.app — SaaS/Corporate — 2025
+06. Business Automation — business-automation-ten.vercel.app — Corporate — 2025
+07. Emerald Estate — emerald-estate.vercel.app — Real Estate — 2025
+08. Nha Khoa TMC — nha-khoa-t-m-c.vercel.app — Healthcare/Dental — 2025
+09. Senmoc Spa — senmocspa.vercel.app — Beauty/Wellness — 2025
+10. Lullaby Massage — lullaby-massage.vercel.app — Beauty/Wellness — 2025
+11. Lullaby Massage II — lullaby-massage-l2la.vercel.app — Beauty/Wellness — 2025
+12. Anna Ngoc Anh Branding — anna-ng-c-anh-branding.vercel.app — Beauty — 2024
+13. Maison Or Perfume — maison-or-luxury-perfume-boutique.vercel.app — Beauty/Luxury — 2024
+14. Luxe Bijoux — luxe-bijoux.vercel.app — Jewelry/Beauty — 2024
+15. Velorah — velorah-pi.vercel.app — Beauty/Wellness — 2024
+16. The Curated Earth — the-curated-earth.vercel.app — Eco Beauty — 2024
+17. Luxora Elegance — luxora-timeless-elegance.vercel.app — Fashion — 2024
+18. Street Impact Fashion — street-impact-fashion.vercel.app — Fashion/Streetwear — 2024
+19. Fashion Seven — fashion-seven-beta.vercel.app — Fashion — 2023
+20. Kinetic Noir — kinetic-noir-tau.vercel.app — Fashion/Editorial — 2023
+21. UniLearn — uni-learn-xi.vercel.app — Education — 2023
+22. English Note Center — english-note-center.vercel.app — Education — 2023
+23. Notebook Flips — notebook-flips.vercel.app — Education/Stationery — 2023
+24. Gundam Armory — gundam-armory.vercel.app — Collectibles/E-commerce — 2022
+25. Cosplay Store — cosplay-store.vercel.app — Collectibles/E-commerce — 2022
+26. Camera Pro — camerapro-eight.vercel.app — Photography Equipment — 2022
+27. Neon Glide Skate — neon-glide-patin.vercel.app — Sports/Lifestyle — 2022
+28. White Web Design — white-web-design.vercel.app — Studio Portfolio — 2022
+29. Portfolio BK58 — portfolio-black-six-58.vercel.app — Personal Portfolio — 2022
+30. Glass Portfolio — glass-morphism-portfolio.vercel.app — Experimental Portfolio — 2022
+31. GMB Furniture — g-m-b-u-tr-c.vercel.app — Corporate/Manufacturing — 2022
+32. Web Design Studio — web-design-studio-mauve.vercel.app — Studio Portfolio — 2022
+
+FREQUENTLY ASKED QUESTIONS
+---------------------------
+Q: What services does FEN offer?
+A: FEN offers web design, UI/UX design, front-end development with React and TypeScript,
+   creative direction, GSAP motion design, landing page design, e-commerce website design,
+   and corporate/healthcare/education website design.
+
+Q: Where is FEN based and does FEN work internationally?
+A: FEN is based in Ho Chi Minh City, Vietnam (GMT+7) and works with clients worldwide
+   on a fully remote basis. Fluent in Vietnamese and English.
+
+Q: How many projects has FEN completed?
+A: 32 website projects from 2022 to 2026, across creative studios, healthcare, beauty,
+   fashion, real estate, education, and corporate sectors.
+
+Q: How can I hire FEN for a project?
+A: Contact FEN via the form at https://white-web-design.vercel.app/#contact or
+   directly at hello@fen.studio. FEN typically responds within 24-48 hours.
+
+Q: What is FEN's design specialty?
+A: Dark luxury interfaces, editorial design systems, GSAP-powered motion experiences,
+   and premium portfolio/brand websites. FEN is particularly known for sophisticated
+   dark UI, strong typographic hierarchy, and intentional use of negative space.
+
+Q: What technologies does FEN use?
+A: React 18, TypeScript, Vite, Tailwind CSS, GSAP animations, Figma for design.
+   Deployed on Vercel with performance-optimized builds.
+
+CONTACT
+-------
+Email: hello@fen.studio
+Website contact form: https://white-web-design.vercel.app/#contact
+Location: Vietnam (available for remote work worldwide)
+Response time: Within 24-48 hours

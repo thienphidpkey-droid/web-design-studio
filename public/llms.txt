@@ -1,0 +1,76 @@
+# FEN — Freelance Web Designer & Developer
+
+> FEN is a Vietnamese freelance web designer and developer with 4+ years of experience building premium websites across 32+ projects. Based in Vietnam, working worldwide. Specializes in dark luxury interfaces, editorial design systems, and full front-end development. Available for new projects.
+
+## Services
+
+- Web Design (UI/UX, visual systems, Figma prototyping)
+- Front-end Development (React, TypeScript, Vite, Tailwind CSS, GSAP)
+- Creative Direction (art direction, brand visual strategy)
+- Landing Page Design & Development (conversion-optimized)
+- Portfolio Website Design (creative professionals, studios)
+- E-commerce Website Design (Shopify, custom builds)
+- Healthcare Website Design (clinics, spas, wellness)
+- Education Platform Design (LMS, course websites, schools)
+- Corporate & Business Website Design
+- Motion & Interaction Design (GSAP animations, micro-interactions)
+
+## Portfolio (32 Projects)
+
+- [Heona Media](https://www.heonamedia.com/) — Creative studio, 2026
+- [Minh An Studio](https://minh-an-studio.vercel.app/) — Creative studio portfolio, 2026
+- [Nova Creative Agency](https://nova-creative-agency.vercel.app/) — Agency website, 2026
+- [Velocity Digital](https://velocity-digital.vercel.app/) — Digital agency, 2025
+- [Liquid Automation](https://liquid-automation.vercel.app/) — SaaS platform, 2025
+- [Business Automation](https://business-automation-ten.vercel.app/) — B2B corporate, 2025
+- [Emerald Estate](https://emerald-estate.vercel.app/) — Real estate developer, 2025
+- [Nha Khoa TMC](https://nha-khoa-t-m-c.vercel.app/) — Dental clinic, 2025
+- [Senmoc Spa](https://senmocspa.vercel.app/) — Luxury spa, 2025
+- [Lullaby Massage](https://lullaby-massage.vercel.app/) — Wellness brand, 2025
+- [Lullaby Massage II](https://lullaby-massage-l2la.vercel.app/) — Wellness brand v2, 2025
+- [Anna Ngoc Anh Branding](https://anna-ng-c-anh-branding.vercel.app/) — Beauty professional, 2024
+- [Maison Or Perfume](https://maison-or-luxury-perfume-boutique.vercel.app/) — Luxury perfume, 2024
+- [Luxe Bijoux](https://luxe-bijoux.vercel.app/) — Fine jewelry, 2024
+- [Velorah](https://velorah-pi.vercel.app/) — Beauty brand, 2024
+- [The Curated Earth](https://the-curated-earth.vercel.app/) — Eco beauty, 2024
+- [Luxora Elegance](https://luxora-timeless-elegance.vercel.app/) — Fashion e-commerce, 2024
+- [Street Impact Fashion](https://street-impact-fashion.vercel.app/) — Streetwear, 2024
+- [Fashion Seven](https://fashion-seven-beta.vercel.app/) — Fashion brand, 2023
+- [Kinetic Noir](https://kinetic-noir-tau.vercel.app/) — Dark fashion, 2023
+- [UniLearn](https://uni-learn-xi.vercel.app/) — Learning platform, 2023
+- [English Note Center](https://english-note-center.vercel.app/) — Language school, 2023
+- [Notebook Flips](https://notebook-flips.vercel.app/) — Education brand, 2023
+- [Gundam Armory](https://gundam-armory.vercel.app/) — Collectibles store, 2022
+- [Cosplay Store](https://cosplay-store.vercel.app/) — Cosplay e-commerce, 2022
+- [Camera Pro](https://camerapro-eight.vercel.app/) — Photography equipment, 2022
+- [Neon Glide Skate](https://neon-glide-patin.vercel.app/) — Skate brand, 2022
+- [White Web Design](https://white-web-design.vercel.app/) — Design studio, 2022
+- [Portfolio BK58](https://portfolio-black-six-58.vercel.app/) — Personal portfolio, 2022
+- [Glass Portfolio](https://glass-morphism-portfolio.vercel.app/) — Experimental portfolio, 2022
+- [GMB Furniture](https://g-m-b-u-tr-c.vercel.app/) — Furniture manufacturer, 2022
+- [Web Design Studio](https://web-design-studio-mauve.vercel.app/) — Studio portfolio, 2022
+
+## Technical Skills
+
+- **Languages:** HTML5, CSS3, JavaScript (ES2024), TypeScript
+- **Frameworks:** React 18, Vite 5, Next.js
+- **Styling:** Tailwind CSS, Vanilla CSS, CSS Variables, CSS Grid/Flexbox
+- **Animation:** GSAP 3, ScrollTrigger, Framer Motion
+- **Design:** Figma, Adobe Photoshop, Adobe Illustrator
+- **Deployment:** Vercel, Netlify, GitHub Pages
+
+## About
+
+FEN handles every stage of web production independently: from initial concept and wireframing through visual design in Figma, to front-end development and deployment. This end-to-end approach means clients work with one person throughout — with a single consistent creative vision from start to finish.
+
+Design philosophy: premium visual quality, strong typographic hierarchy, intentional negative space, subtle motion, and fast-loading pages that respect the user's attention.
+
+Sometimes spending three hours fixing something that is only four pixels out of place.
+
+## Contact & Availability
+
+- **Email:** hello@fen.studio
+- **Website:** https://white-web-design.vercel.app/
+- **Location:** Vietnam (GMT+7)
+- **Available for:** Freelance projects worldwide
+- **Typical project types:** Portfolio, brand websites, landing pages, e-commerce, corporate
