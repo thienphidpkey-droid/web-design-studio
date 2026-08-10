@@ -55,7 +55,7 @@
             ]
         },
         {
-            "source": "/(.*\\.(jpg|jpeg|png|gif|webp|svg|ico))",
+            "source": "/:path*.(jpg|jpeg|png|gif|webp|svg|ico)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -64,7 +64,7 @@
             ]
         },
         {
-            "source": "/(robots.txt|sitemap.xml|llms.txt|manifest.json)",
+            "source": "/:file(robots.txt|sitemap.xml|llms.txt|manifest.json)",
             "headers": [
                 {
                     "key": "Cache-Control",
